@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Programming Basics - Home</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        function drawDiamond(context, x, y, width, height) {
+            context.save();
+            context.beginPath();
+            context.moveTo(x, y);
+
+            //top left
+            context.lineTo(x - width / 2, y + height / 2);
+
+            //bottom left
+            context.lineTo(x, y + height);
+
+            //bottom right
+            context.lineTo(x + width / 2, y + height / 2);
+
+            //top right
+            context.closePath();
+
+            //colors diamond
+            context.fillStyle = "red";
+            context.fill();
+        }
+
+        function drawDiamond2(context, x, y, width, height) {
+            context.save();
+            context.beginPath();
+            context.moveTo(x, y);
+
+            //bottom left
+            context.lineTo(x + width / 2, y / 2 + height);
+
+            //bottom right
+            context.lineTo(x + width, y);
+
+            //top right
+            context.lineTo(x + width - width / 6, y / 2);
+
+            //top
+            context.lineTo(x + width / 6, y / 2);
+
+            //top left
+            context.closePath();
+
+            //colors diamond
+            context.fillStyle = "#B9F2FF";
+            context.fill();
+        }
+
+        window.onload = function () {
+            var canvas = document.getElementById("drawDiamondCanvas");
+            var context = canvas.getContext("2d");
+            var button = document.getElementById("drawDiamondButton");
+
+            var canvas2 = document.getElementById("drawDiamondCanvas2");
+            var context2 = canvas2.getContext("2d");
+            var button2 = document.getElementById("drawDiamondButton2");
+
+            button.onclick = function () { drawDiamond(context, 75, 25, 75, 100); }
+            button2.onclick = function () { drawDiamond2(context2, 25, 50, 100, 100); }
+        };
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <canvas id="drawDiamondCanvas" width="150" height="150"></canvas>
+        <button id="drawDiamondButton">Draw Diamond</button>
+    </div>
+    <div class="container">
+        <canvas id="drawDiamondCanvas2" width="150" height="150"></canvas>
+        <button id="drawDiamondButton2">Draw Diamond</button>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,15 @@
+.container {
+    display: inline-grid;
+    margin: 50px;
+}
+
+Canvas {
+    border: 1px solid black;
+}
+
+Button {
+    height: 50px;
+    font-size: 14pt;
+    border: 1px solid black;
+    border-top: 0px;
+}
